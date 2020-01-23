@@ -1,9 +1,10 @@
 node{
-  def Namespace = "pkapp"
-  def ImageName = "maheshkharwadkar/mkimage"
-  def Creds	= "mk-dockerhub-creds"
+  def Namespace = "dockertest"
+  def ImageName = "amit3189/k8_docker_image"
+  def Creds	= "dockerhub_creds"
   def imageTag = "1.0"
-  try{
+  
+ try{
   stage('Checkout'){
       git 'https://github.com/maheshkharwadkar/mk-k8-ci-cd.git'
       //sh "git rev-parse --short HEAD > .git/commit-id"
@@ -25,15 +26,6 @@ node{
         }
 
     }
-    stage('Deploy on K8s'){
-	script{
-        sh "cd ansible/sayarapp-deploy"
-	    sh "pwd"
-	    sh (
-		    script: "cd ansible/sayarapp-deploy && ansible-playbook deploy.yml  --user=jenkins --extra-vars ImageName=${ImageName} --extra-vars imageTag=${imageTag} --extra-vars Namespace=${Namespace} -vv"
-        )  
-	  }
-	}
      } catch (err) {
       currentBuild.result = 'FAILURE'
     }
