@@ -1,5 +1,5 @@
 node{
-  def Namespace = "dockertest"
+  def Namespace = "docker-test"
   def ImageName = "amit3189/k8_docker_image"
   def Creds	= "dockerhub_creds"
   def imageTag = "1.0"
