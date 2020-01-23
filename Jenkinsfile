@@ -6,7 +6,7 @@ node{
   
  try{
   stage('Checkout'){
-      git 'https://github.com/maheshkharwadkar/mk-k8-ci-cd.git'
+      git 'https://github.com/amit3189/mk-k8-ci-cd.git'
       //sh "git rev-parse --short HEAD > .git/commit-id"
       //imageTag= readFile('.git/commit-id').trim()
 
